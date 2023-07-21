@@ -1,0 +1,11 @@
+data "vcd_nsxt_ip_set" "main" {
+  org = var.vcd_org
+  edge_gateway_id = data.vcd_nsxt_edgegateway.edgegateway.id
+  name = var.vcd_ip2
+ }
+
+data "vcd_nsxt_ip_set" "main1" {
+  org = var.vcd_org
+  edge_gateway_id = data.vcd_nsxt_edgegateway.edgegateway.id
+  name = var.vcd_ip1
+ }

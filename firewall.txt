@@ -1,0 +1,26 @@
+resource "vcd_nsxt_firewall" "main" {
+  org = var.vcd_org
+  edge_gateway_id = data.vcd_nsxt_edgegateway.edgegateway.id
+
+    rule {
+
+    action               = "ALLOW"
+    name                 = "external_network-DEV"
+    direction            = "IN_OUT"
+    ip_protocol          = "IPV4"
+    source_ids           = [data.vcd_nsxt_ip_set.main.id]
+
+
+  }
+
+    rule {
+
+    action               = "ALLOW"
+    name                 = "outbount"
+    direction            = "IN_OUT"
+    ip_protocol          = "IPV4"
+    source_ids           = [data.vcd_nsxt_ip_set.main1.id]
+
+
+    }
+}
